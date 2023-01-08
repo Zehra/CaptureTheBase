@@ -47,7 +47,7 @@ void CaptureTheBase::Event(bz_EventData *eventData ){
         bz_eTeamType playerTeam =  bz_getPlayerTeam(allowGrab->playerID);
         bz_eTeamType flagTeam = flagToTeamValue(allowGrab->flagType);
         
-        if (playerTeam == flagTeam) {
+        if ((playerTeam == flagTeam) || ((flagTeam != eNoTeam) && (playerTeam == eRogueTeam))) {
             allowGrab->allow = false;
         }
    
